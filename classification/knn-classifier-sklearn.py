@@ -10,6 +10,9 @@ X = np.array(df.drop(['class'], axis=1))
 y = np.array(df['class'])
 
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2)
+print(X_train.shape)
+print(y_train.shape)
+print(X_test.shape)
 
 clf = neighbors.KNeighborsClassifier()
 clf.fit(X_train, y_train)
@@ -18,8 +21,8 @@ accuracy = clf.score(X_test, y_test)
 
 print(accuracy)
 
-example_meausres = np.array([4,2,1,1,1,2,3,2,1])
-example_meausres = example_meausres.reshape(1,-1)
+example_meausres = np.array([[4,2,1,1,1,2,3,2,1],[4,2,1,1,1,2,3,2,1]])
+print(example_meausres.shape)
 
 prediction = clf.predict(example_meausres)
 
